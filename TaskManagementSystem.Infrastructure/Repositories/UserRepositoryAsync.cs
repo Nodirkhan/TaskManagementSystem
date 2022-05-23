@@ -20,9 +20,13 @@ namespace TaskManagementSystem.Infrastructure.Repositories
             _users = context.Users;
         }
 
-        public async Task<User> LoginAsync(string username, string password) =>
-            await GetByIdAsync(user => user.UserName == username && user.Password == password,
-                new List<string> { "Projects", "Tasks" });
+        public async Task<User> LoginAsync(string username, string password)
+        {
+            var user = await GetByIdAsync(user => user.UserName == username && user.Password == password,
+                new List<string>());
+            return user;
+        }
+            
 
 
     }
