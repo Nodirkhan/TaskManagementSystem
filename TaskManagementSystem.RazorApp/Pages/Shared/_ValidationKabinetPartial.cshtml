@@ -1,0 +1,8 @@
+﻿@using System.Security.Claims
+@{
+    if(User.Identity.IsAuthenticated)
+    {
+        var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+        <a asp-page="User/ListUser" asp-route-id="@userId" class="nav-link text-dark">Cabinet</a>
+    }
+}

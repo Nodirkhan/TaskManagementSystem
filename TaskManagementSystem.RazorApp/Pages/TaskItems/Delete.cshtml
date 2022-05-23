@@ -1,0 +1,26 @@
+﻿@page "{id}"
+@model TaskManagementSystem.RazorApp.Pages.TaskItems.DeleteModel
+@{
+}
+<div class="row mb-3 justify-content-center">
+    <div class="card col-md-6 border-danger" >
+    <div class="card-body">
+    <h5 class="card-title">@Model.TaskItemDTO.Name</h5>
+    <h6 class="card-subtitle mb-2 text-danger">Deleting Project</h6>
+    <h6 class="text-info">Created Date : @Model.TaskItemDTO.CreatedDate</h6>
+    <h6 class="text-warning">Created Date : @Model.TaskItemDTO.EndDate</h6>
+    <p class="card-text alert alert-info">@Model.TaskItemDTO.Description</p>
+    <div class="d-flex justify-content-between mb-3">
+    <h5>Assign To : <span class="text-warning">@Model.User.FirstName</span></h5>
+    <h5>Type Status : <span class="text-danger">@Model.Status.Name</span></h5>
+    </div>
+    <form method="post">
+        <input asp-for="TaskItemDTO.Id" value="@Model.TaskItemDTO.ProjectId" hidden />
+        <div class="d-flex">
+    <button met type="submit" class="btn btn-danger" style="margin-right:5px;">Delete</button>
+    <a class="btn btn-primary" asp-page="ListTaskItemDTO">Back to list</a>
+        </div>
+    </form>
+  </div>
+</div>
+</div>

@@ -1,0 +1,21 @@
+﻿@page
+@model TaskManagementSystem.RazorApp.Pages.Project.DeleteProjectModel
+@{
+}
+<div class="row mb-3 justify-content-center">
+    <div class="card col-md-6" >
+    <div class="card-body">
+    <h5 class="card-title">@Model.ProjectDTO.Name</h5>
+    <h6 class="card-subtitle mb-2 text-muted">Deleting Project</h6>
+    <h6 class="text-info">Created Date : @Model.ProjectDTO.CreatedDate</h6>
+    <h6 class="text-info">Created Date : @Model.ProjectDTO.EndDate</h6>
+    <p class="card-text">If you delete This Project, all tasks of @Model.ProjectDTO.Name will been removed also!!! </p>
+    <form method="post">
+        <div class="d-flex">
+    <button met type="submit" class="btn btn-danger mr-2">Delete</button>
+    <a class="btn btn-primary" asp-page="ListProject">Back to list</a>
+        </div>
+    </form>
+  </div>
+</div>
+</div>

@@ -1,0 +1,55 @@
+﻿@page "{id}"
+@model TaskManagementSystem.RazorApp.Pages.TaskItems.ListTaskItemModel
+@{
+}
+
+<div class="row">
+    <div class="col-12">
+        <div class="col-12 d-flex justify-content-between">
+            <div class="col-md-3">
+                <h3 class="text-warning">@Model.Project.Name</h3>
+            </div>
+            <div class="col-md-3">
+            <a asp-page="Create" asp-route-id="@Model.Project.Id" class="btn btn-primary">+Add Task</a>
+            <a asp-page="/Project/ListProject" asp-route-id="@Model.Project.Id" class="btn btn-danger">Back</a>
+            </div>
+        </div>
+        <table  class="table table-striped">
+           <thead>
+               <tr>
+                   <th>Task Name</th>
+                   <th>Description</th>
+                   <th>Created Date</th>
+                   <th>End Date</th>
+                   <th>Assign to</th>
+                   <th>Status</th>
+                   <th>Action</th>
+               </tr>
+           </thead>
+           <tbody>
+                 @foreach(var taskItem in Model.TaskItems)
+                {
+                 <tr>   
+                    <td>@taskItem.Name</td>
+                    <td>@taskItem.Description</td>
+                    <td>@taskItem.CreatedDate.ToString("MMM dd, yyyy")</td>
+                    <td>@taskItem.EndDate.ToString("MMM dd, yyyy")</td>
+                    <td class="text-primary">@taskItem.UserDTO.FirstName</td>
+                    <td class="text-success">@taskItem.Status.Name</td>
+                    <td>
+                        <a asp-page="SingleTask"  asp-route-id="@taskItem.Id" class="btn btn-primary">
+                            <i class="bi bi-info-square mr-1"></i> 
+                            </a>
+                         <a asp-page="Edit" asp-route-id="@taskItem.Id" class="btn btn-info">
+                        <i class="bi bi-pencil-square mr-1"></i>
+                            </a>
+                             <a asp-page="Delete" asp-route-id="@taskItem.Id" class="btn btn-danger">
+                        <i class="bi bi-trash"></i>
+                            </a>
+                    </td>   
+                </tr>                
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

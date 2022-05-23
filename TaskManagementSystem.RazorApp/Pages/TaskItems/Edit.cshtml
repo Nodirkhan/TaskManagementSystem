@@ -1,0 +1,55 @@
+﻿@page "{id}"
+@model TaskManagementSystem.RazorApp.Pages.TaskItems.EditModel
+@{
+}
+
+<div class="row">
+    
+    <div class="col-lg-12">
+        <form method="post" class="row g-3">
+  <div class="col-md-6">
+    <label asp-for="TaskItemDTO.Name" class="form-label"></label>
+    <input asp-for="TaskItemDTO.Name" value="@Model.TaskItemDTO.Name" class="form-control"/>
+    <span asp-validation-for="TaskItemDTO.Name" class="text-danger"></span>
+  </div>
+  <div class="col-md-6">
+    <label asp-for="TaskItemDTO.EndDate" class="form-label"></label>
+    <input asp-for="TaskItemDTO.EndDate" value="@Model.TaskItemDTO.EndDate" class="form-control">
+    <span asp-validation-for="TaskItemDTO.EndDate" class="text-danger"></span>
+  </div>
+  <div class="col-12">
+    <label asp-for="TaskItemDTO.Description" class="form-label"></label>
+    <input asp-for="TaskItemDTO.Description" value="@Model.TaskItemDTO.Description" class="form-control" placeholder="Write something about task">
+    <span asp-validation-for="TaskItemDTO.Description" class="text-danger"></span>
+  </div>
+   <div class="col-md-6">
+       <label asp-for="Statuses" class="form-label"></label>
+       <select asp-for="TaskItemDTO.TaskStatusId" asp-items="@(new SelectList(Model.Statuses,"Id","Name"))" class="form-select form-select-lg">
+        <option   value=""  selected>Open this status</option>
+       </select>
+    <span asp-validation-for="TaskItemDTO.TaskStatusId" class="text-danger"></span>
+   </div>
+   <div class="col-md-6">
+       <label asp-for="Users" class="form-label"></label>
+       <select asp-for=TaskItemDTO.UserId asp-items="@(new SelectList(Model.Users,"Id","FirstName"))" class="form-select form-select-lg">
+        <option  value="" selected>Assign To User</option>
+       </select>
+    <span asp-validation-for="TaskItemDTO.UserId" class="text-danger"></span>
+   </div>
+  
+  <div class="col-4 d-flex justify-content-between">
+      <div class="col-md-6">
+         <button type="submit" class="btn btn-primary">Create Task</button>
+      </div>
+      <div class="col-md-6">
+         <a asp-page="ListTaskItem" asp-route-id="@Model.TaskItemDTO.ProjectId" class="btn btn-danger">Back</a>
+      </div>
+  </div>
+</form>
+    </div>
+</div>
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}

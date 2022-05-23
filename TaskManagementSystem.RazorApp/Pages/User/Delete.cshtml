@@ -1,0 +1,20 @@
+﻿@page
+@model TaskManagementSystem.RazorApp.Pages.User.DeleteModel
+@{
+}
+<div class="row">
+    <div class="vol-md-6">
+         <img src="~/image/Admin.jpg" class="card-img-top" alt="...">
+         <div class="card-body">
+         <h5 class="card-title text-center">@Model.UserDTO.FirstName</h5>
+         <p class="text-dark" style="font-size:23px">Firstname : <span class="text-info" style="font-weight:700;">@Model.UserDTO.FirstName</span></p>
+         <p class="text-dark" style="font-size:23px">Lastname : <span class="text-info" style="font-weight:700;">@Model.UserDTO.LastName</span></p>
+         <p class="text-dark" style="font-size:23px">Role : <span class="text-info" style="font-weight:700;">@Model.UserDTO.Role.ToString()</span></p>
+         <p class="text-dark" style="font-size:23px">Username : <span class="text-info" style="font-weight:700;">@Model.UserDTO.UserName</span></p>
+         <p class="text-dark" style="font-size:23px">Password : <span class="text-info" style="font-weight:700;">@Model.UserDTO.Password</span></p>
+         <form method="post">
+             <button type="submit" class="btn btn-danger">Delete <i class="bi bi-trash"></i></button>
+         </form>
+         </div>
+    </div>
+</div>

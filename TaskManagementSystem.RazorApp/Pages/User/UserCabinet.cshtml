@@ -1,0 +1,28 @@
+﻿@page
+@model TaskManagementSystem.RazorApp.Pages.User.UserCabinetModel
+@{
+}
+<div class="row justify-content-center">
+    <div class="col-md-6 card">
+         <img src="~/image/Admin.jpg" class="card-img-top rounded" style="width:250px;height:250px;margin:auto;" alt="...">
+         <div class="card-body">
+         <h5 class="card-title text-center">@Model.UserDTO.FirstName</h5>
+         <p class="text-dark" style="font-size:23px">Firstname : <span class="text-info" style="font-weight:700;">@Model.UserDTO.FirstName</span></p>
+         <p class="text-dark" style="font-size:23px">Lastname : <span class="text-info" style="font-weight:700;">@Model.UserDTO.LastName</span></p>
+         <p class="text-dark" style="font-size:23px">Role : <span class="text-info" style="font-weight:700;">@Model.UserDTO.Role.ToString()</span></p>
+         <p class="text-dark" style="font-size:23px">Username : <span class="text-info" style="font-weight:700;">@Model.UserDTO.UserName</span></p>
+         <p class="text-dark" style="font-size:23px">Password : <span class="text-info" style="font-weight:700;">@Model.UserDTO.Password</span></p>
+         <div class="d-flex justify-content-between">
+               <a asp-page="../Index" asp-route-id="@Model.UserDTO.Id" class="btn btn-primary">
+                  <i class="bi bi-back"></i> 
+               </a>
+               <a asp-page="Edit" asp-route-id="@Model.UserDTO.Id" class="btn btn-info">
+                 <i class="bi bi-pencil-square mr-1"></i>
+               </a>
+               <a asp-page="Delete" asp-route-id="@Model.UserDTO.Id" class="btn btn-danger">
+                  <i class="bi bi-trash"></i>
+                </a>
+         </div>
+        </div>
+    </div>
+</div>

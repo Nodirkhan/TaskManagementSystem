@@ -1,0 +1,38 @@
+﻿@page
+@model TaskManagementSystem.RazorApp.Pages.User.ListUserModel
+@{
+}
+<div  class="row justify-content-between alert alert-info">
+    <div class="col-md-4"><h2>List Of Users</h2></div>
+    <div class="col-auto">
+    <a asp-page="../Index" class="btn btn-danger">Back</a>
+    <a asp-page="Create" class="btn btn-success">Add User</a>
+    </div>
+</div>
+<div class="row justify-content-around">
+    @foreach(var user in Model.Users)
+    {
+        <div class="col-md-3 border-bottom pb-5" style="margin-bottom:5px;">
+         <img src="~/image/Admin.jpg" class="card-img-top" alt="...">
+         <div class="card-body">
+         <h5 class="card-title text-center p-2">@user.FirstName</h5>
+         <p class="text-dark" style="font-size:23px">Firstname : <span class="text-info" style="font-weight:700;">@user.FirstName</span></p>
+         <p class="text-dark" style="font-size:23px">Lastname : <span class="text-info" style="font-weight:700;">@user.LastName</span></p>
+         <p class="text-dark" style="font-size:23px">Role : <span class="text-info" style="font-weight:700;">@user.Role.ToString()</span></p>
+         <p class="text-dark" style="font-size:23px">Username : <span class="text-info" style="font-weight:700;">@user.UserName</span></p>
+         <p class="text-dark" style="font-size:23px">Password : <span class="text-info" style="font-weight:700;">@user.Password</span></p>
+         <div class="d-flex justify-content-between">
+               <a asp-page="UserCabinet" asp-route-id="@user.Id" class="btn btn-primary">
+                  <i class="bi bi-info-square-fill"></i> 
+               </a>
+               <a asp-page="Edit" asp-route-id="@user.Id" class="btn btn-info">
+                 <i class="bi bi-pencil-square mr-1"></i>
+               </a>
+               <a asp-page="Delete" asp-route-id="@user.Id" class="btn btn-danger">
+                  <i class="bi bi-trash"></i>
+                </a>
+         </div>
+         </div>
+        </div>
+    }
+</div>

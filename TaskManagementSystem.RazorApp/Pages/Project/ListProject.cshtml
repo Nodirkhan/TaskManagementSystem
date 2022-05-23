@@ -1,0 +1,53 @@
+﻿@page
+@model TaskManagementSystem.RazorApp.Pages.Project.ListProjectModel
+@{
+    ViewBag.Title = "Projects";
+    string title = (@Model.Projects is not null) ? "All Projects" : "Projects Not Found, Please Add Youur Project";
+}
+
+<div class="row">
+    <div class="col-12 d-flex justify-content-between">
+       <div class="col-md-6">
+           <h2>@title</h2>
+       </div>
+       <div class="col-md-3">
+           <a asp-page="AddProject" class="btn btn-primary">Add Project</a>
+       </div>
+    </div>
+    <div class="col-12 mt-3">
+        <table  class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Project Name</th>
+                    <th>User Id</th>
+                    <th>Created Date</th>
+                    <th>End Date</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var project in Model.Projects)
+                {
+                 <tr>   
+                    <td>@project.Name</td>
+                    <td>@project.UserId</td>
+                    <td>@project.CreatedDate.ToString("MMM dd, yyyy")</td>
+                    <td class="text-danger">@project.EndDate.ToString("MMM dd, yyyy")</td>
+                    <td>
+                        <a asp-page="../TaskItems/ListTaskItem"  asp-route-id="@project.Id" class="btn btn-primary">
+                            <i class="bi bi-info-square mr-1"></i> 
+                            </a>
+                         <a asp-page="EditProject" asp-route-id="@project.Id" class="btn btn-info">
+                        <i class="bi bi-pencil-square mr-1"></i>
+                            </a>
+                             <a asp-page="DeleteProject" asp-route-id="@project.Id" class="btn btn-danger">
+                        <i class="bi bi-trash"></i>
+                            </a>
+                    </td>   
+                </tr>                
+                }
+            </tbody>
+        </table>
+    </div>
+
+</div>

@@ -1,0 +1,56 @@
+﻿@page
+@using TaskManagementSystem.Entities
+@model TaskManagementSystem.RazorApp.Pages.User.CreateModel
+@{
+}
+
+<div class="row">
+    
+    <div class="col-lg-12">
+        <form method="post" class="row g-3">
+  <div class="col-md-6">
+    <label asp-for="UserModel.FirstName" class="form-label"></label>
+    <input asp-for="UserModel.FirstName"  class="form-control"/>
+    <span asp-validation-for="UserModel.FirstName" class="text-danger"></span>
+  </div>
+  <div class="col-md-6">
+    <label asp-for="UserModel.LastName" class="form-label"></label>
+    <input asp-for="UserModel.LastName" class="form-control">
+    <span asp-validation-for="UserModel.LastName" class="text-danger"></span>
+  </div>
+ <div class="col-md-4">
+    <label  asp-for="UserModel.UserName" class="form-label"></label>
+    <input autocomplete="off" asp-for="UserModel.UserName" class="form-control"/>
+    <span asp-validation-for="UserModel.UserName" class="text-danger"></span>
+  </div>
+  <div class="col-md-4">
+    <label asp-for="UserModel.Password" class="form-label"></label>
+    <input autocomplete="off" asp-for="UserModel.Password" class="form-control">
+    <span asp-validation-for="UserModel.Password" class="text-danger"></span>
+  </div>
+    <div class="col-md-4">
+    <label asp-for="UserModel.ComparePassWord" class="form-label"></label>
+    <input asp-for="UserModel.ComparePassWord" class="form-control">
+    <span asp-validation-for="UserModel.ComparePassWord" class="text-danger"></span>
+  </div>
+  <div class="col-md-4">
+      <select asp-for="UserModel.Role" asp-items="@Html.GetEnumSelectList<EnumRole>()" class="form-select">
+          <option value="">PLease Choose a Role</option>
+      </select>
+  </div>
+  <div class="col-4 d-flex justify-content-between">
+      <div class="col-md-6">
+         <button type="submit" class="btn btn-primary">Create Task</button>
+      </div>
+      <div class="col-md-6">
+         <a asp-page="../Index" class="btn btn-danger">Back</a>
+      </div>
+  </div>
+</form>
+    </div>
+</div>
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}

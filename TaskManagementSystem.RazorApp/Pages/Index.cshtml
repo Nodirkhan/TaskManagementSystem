@@ -1,0 +1,22 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="">
+    <div class="card text-center">
+  <div class="card-header text-success font-weight-bold alert alert-info">
+    Task Management System
+  </div>
+  <div class="card-body">
+    <h5 class="card-title text-primary pb-2">Simple App for using </h5>
+    <p  class="card-text alert alert-success">You may Create New project and this System is able to provide task. So, You Assign user who must work uver that task.There are many status type. You have to choose one of the these.Furthermore you point End date for Every project.I Hope You Like it. </p>
+    <a asp-page="/Project/AddProject" class="btn btn-primary">Go to Create Our Project</a>
+    <a asp-page="/Project/ListProject" class="btn btn-primary">Go to List Of Projects</a>
+  </div>
+  <div class="card-footer text-info">
+     Today @DateTime.Now.ToString("MMMM dd,yyyy");
+  </div>
+</div>
+</div>

@@ -1,0 +1,68 @@
+﻿@page "{id}"
+@using TaskManagementSystem.Entities
+@model TaskManagementSystem.RazorApp.Pages.User.EditModel
+@{
+}
+
+<div class="row">
+    
+    <div class="col-lg-12">
+        <form method="post" class="row g-3">
+  <div class="col-md-6">
+    <label asp-for="UserDTO.FirstName" class="form-label"></label>
+    <input asp-for="UserDTO.FirstName" value="@Model.UserDTO.FirstName" class="form-control"/>
+    <span asp-validation-for="UserDTO.FirstName" class="text-danger"></span>
+  </div>
+  <div class="col-md-6">
+    <label asp-for="UserDTO.LastName" class="form-label"></label>
+    <input asp-for="UserDTO.LastName" value="@Model.UserDTO.LastName" class="form-control">
+    <span asp-validation-for="UserDTO.LastName" class="text-danger"></span>
+  </div>
+ <div class="col-md-4">
+    <label asp-for="UserDTO.UserName" class="form-label"></label>
+    <input asp-for="UserDTO.UserName" value="@Model.UserDTO.FirstName" class="form-control"/>
+    <span asp-validation-for="UserDTO.UserName" class="text-danger"></span>
+  </div>
+  <div class="col-md-4">
+    <label asp-for="UserDTO.Password" class="form-label"></label>
+    <input asp-for="UserDTO.Password" value="@Model.UserDTO.LastName" class="form-control">
+    <span asp-validation-for="UserDTO.Password" class="text-danger"></span>
+  </div>
+    <div class="col-md-4">
+    <label asp-for="UserDTO.ComparePassWord" class="form-label"></label>
+    <input asp-for="UserDTO.ComparePassWord" value="@Model.UserDTO.LastName" class="form-control">
+    <span asp-validation-for="UserDTO.ComparePassWord" class="text-danger"></span>
+  </div>
+  <div class="col-md-4">
+      <select asp-for="UserDTO.Role" disabled id="RoleDisabled" asp-items="@Html.GetEnumSelectList<EnumRole>()" class="form-select">
+          <option value="@Model.UserDTO.Role.ToString()"></option>
+      </select>
+  </div>
+ 
+  
+
+  <div class="col-4 d-flex justify-content-between">
+      <div class="col-md-6">
+         <button type="submit" class="btn btn-primary">Create Task</button>
+      </div>
+      <div class="col-md-6">
+         <a asp-page="../Index" class="btn btn-danger">Back</a>
+      </div>
+  </div>
+</form>
+    </div>
+</div>
+@section Scripts{
+    @{
+        
+   <script type="text/javascript">
+     window.onload = function(){
+      if(@Model.AgreementToChooseRole){
+   document.getElementById("RoleDisabled").removeAttribute("disabled");
+   confirm("salom");
+      }
+  }
+</script>
+        <partial name="_ValidationScriptsPartial" />
+    }
+}

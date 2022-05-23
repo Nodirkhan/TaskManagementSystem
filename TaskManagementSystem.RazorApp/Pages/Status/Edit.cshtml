@@ -1,0 +1,28 @@
+﻿@page
+@model TaskManagementSystem.RazorApp.Pages.Status.EditModel
+@{
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly"></div>
+             <div class="row mb-3">
+                <label asp-for="Status.Name" class="col-sm-12 col-form-label" ></label>
+                <div class="col-sm-10">
+                   <input asp-for="Status.Name" class="form-control"  value="@Model.Status.Name" >
+                </div>
+                <div class="col-sm-10">
+                   <span  asp-validation-for="Status.Name" class="text-danger"></span>
+                </div>
+             </div>
+             <button type="submit" class="btn btn-primary">Update</button>
+         <a class="btn btn-primary" asp-page="ListStatus">Back to list</a>
+        </form>
+    </div>
+</div>
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
