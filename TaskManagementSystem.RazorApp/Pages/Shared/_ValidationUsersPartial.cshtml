@@ -5,7 +5,7 @@
         var userRole = User.FindFirstValue(ClaimTypes.Role);
         if(userRole == "Admin")
         {
-            <a asp-page="User/ListUser" class="nav-link text-dark">Users</a>
+            <a asp-page="/User/ListUser" asp-area="" class="nav-link text-dark">Users</a>
         }
     }
 }

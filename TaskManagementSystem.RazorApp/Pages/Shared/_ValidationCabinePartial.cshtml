@@ -3,6 +3,6 @@
     var UserID = User.FindFirstValue(ClaimTypes.NameIdentifier);
     if (User.Identity.IsAuthenticated)
     {
-        <a asp-page="/User/UserCabinet" asp-route-id="@UserID" class="nav-link text-dark">Cabinet</a>
+        <a asp-page="/User/UserCabinet" asp-area="" asp-route-id="@UserID" class="nav-link text-dark">Cabinet</a>
     }
 }
